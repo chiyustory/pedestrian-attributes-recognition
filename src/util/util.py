@@ -12,7 +12,7 @@ class AverageMeter(object):
         self.avg = 0
         self.sum = 0
         self.count = 0
-    sef update(self, val, n=1):
+    def update(self, val, n=1):
         self.val = val
         self.sum += val * n
         self.count += n
@@ -34,8 +34,14 @@ def print_accuracy(opt):
             # the attr is not labeled
             if attr_val_res[2] == 0:
                 continue
-            recall = attr_val_res[0] / float(attr_val_res[2])
-            acc = attr_val_res[0] / float(attr_val_res[1])
+            if attr_val_res[2]:
+                recall = attr_val_res[0] / float(attr_val_res[2])
+            else:
+                recall = 0
+            if attr_val_res[1]:
+                acc = attr_val_res[0] / float(attr_val_res[1])
+            else:
+                acc = 0
             logging.info("Attribute %s | Value %s Recall: %f Accuracy: %f" %
                          (attr_name, attr_val_name, recall, acc))
 

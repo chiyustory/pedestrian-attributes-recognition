@@ -65,7 +65,10 @@ class BaseDataset(Dataset):
 
         labels_inf = self.labels[index % self.data_size]
         labels = torch.from_numpy(np.array(labels_inf))
-        return input, labels
+        if self.opt.return_file:
+            return input, labels, image_file
+        else:
+            return input, labels
 
     def __len__(self):
         return self.data_size

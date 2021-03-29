@@ -59,6 +59,22 @@ You should modify the options.py firstly, and then:
 python deploy.py
 ```
 
+## Visual Actmap
+
+You should modify the options.py firstly, and then:
+
+```python
+python actmap.py
+```
+
+## Prune 
+
+The code  of prune only generate new model. You should to retrain the model after prune in usual.
+
+```python
+python util/prune.py
+```
+
 ## Reference
 
 - [pytorch-multi-label-classifier](https://github.com/pangwong/pytorch-multi-label-classifier)

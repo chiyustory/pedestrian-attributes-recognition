@@ -1,7 +1,7 @@
 from util.header import *
 from loss.cross_entropy import CrossEntropy
 from data.loader import MultiLabelDataLoader
-from models.model import load_model
+from models.model import load_model,save_model
 from options.options import Options
 from util import util
 
@@ -40,7 +40,7 @@ def test(model, test_set, opt):
 
 def train(model, criterion, train_set, val_set, optimizer, scheduler, opt):
     logging.info("####################Train Model###################")
-    loss_avg = 
+    # loss_avg = 
     for epoch in range(opt.sum_epoch):
         epoch_start_t = time.time()
         epoch_batch_iter = 0

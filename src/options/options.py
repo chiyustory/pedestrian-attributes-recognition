@@ -26,9 +26,9 @@ class Options():
 
 
         self.parser.add_argument('--input_size', default=[224,224], help='scale image to the size prepared for croping')
-        self.parser.add_argument('--mode', default='Train', help='run mode of training or testing. [Train | Test | train | test]')
+        self.parser.add_argument('--mode', default='Test', help='run mode of training or testing. [Train | Test | train | test]')
         self.parser.add_argument('--model',default='Resnet18', help='model type. [Alexnet | LightenB | VGG16 | Resnet18 | ...]')
-        self.parser.add_argument('--batch_size', type=int, default=2, help='batch size of network input. Note that batch_size should only set to 1 in Test mode')
+        self.parser.add_argument('--batch_size', type=int, default=1, help='batch size of network input. Note that batch_size should only set to 1 in Test mode')
         self.parser.add_argument('--load_thread', type=int, default=1, help='how many subprocesses to use for data loading')
         self.parser.add_argument('--mean', default=(123/255,117/255,104/255), help='sequence of means for each channel used for normization')
         self.parser.add_argument('--std', default=(1,1,1), help='sequence standard deviations for each channel used for normization')
@@ -44,6 +44,9 @@ class Options():
         self.parser.add_argument('--display_train_freq', type=int, default=1, help='print train loss and accuracy every $train_freq batches iteration')
         self.parser.add_argument('--display_validate_freq', type=int, default=1, help='test validate dateset every $validate_freq batches iteration')
 
+
+        self.parser.add_argument('--return_file', default=True, help='return img file path')
+           
     def parse(self):
         opt = self.parser.parse_args()
 
